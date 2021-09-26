@@ -1,0 +1,274 @@
+:root{
+    --theme-color: white;
+    --primary-color: #124f88;
+    --secundary-color: #F7C331;
+    --text-color-inverse: white;
+    --text-color: black;
+    --navbar-shallow-color: #e5e5e5;
+    --menu-mobile-background-color: #3A4460;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--theme-color);
+    color: var(--text-color);
+    padding-top: 100px;
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+.horizontal-padding{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.vertical-padding{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+@media (min-width: 950px){
+    .horizontal-padding{
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    .vertical-padding{
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+}
+
+/* position fixed fija a lo que le des estilo, en este caso la barra en realacion al viewport, se agrego un width al 100% para que todo el topheader recorra toda la pantalla*/
+.topheader{
+    box-shadow: 0 4px 5px var(--navbar-shallow-color);
+    position: fixed;
+    background-color: var(--theme-color);
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+
+}
+
+.topnav{
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
+   max-width: 980px;
+   margin: 0 auto;
+}
+
+/* logo */
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.logo img{
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+/* Menu */
+.menu{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li{
+    padding: 0 15px
+}
+
+.menu a{
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 80px;
+    text-transform: uppercase;
+}
+/*Menu hamburguesa, al agregar display: none; Se logra desaparecer las imagenes que nos serviran cuando la pagina se use en modo movil y no en el escritorio */
+.open-menu,
+.close-menu{
+    display: none;
+}
+/*Estilo para dispositivo movil,*/
+ /*Esto (overflow-y) genera un scroll cuando la pantalla es muy pequeña en dispositivos moviles*/
+
+@media (max-width: 950px) {
+    .menu{
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        align-items: center;
+        background-color: var(--menu-mobile-background-color);
+        height: 100%;
+        overflow-y: auto;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+    }
+    .menu li{
+        padding: 0;
+    }
+    
+    .menu a{
+        color: var(--text-color-inverse);
+        line-height: 80px;
+        
+        
+    }
+    .open-menu,
+    .close-menu{
+        display: block;
+        border: none;
+        background: none;
+        cursor: pointer;
+
+    }
+
+    .close-menu{
+        align-self: flex-end;
+        padding: 20px 15px;
+    }
+
+    .menu_opened{
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+/*Perfil para dispositivos moviles*/
+
+.img-cv{
+    width: 80%;
+    max-width: 300px;
+}
+
+.img-info{
+    position: relative;
+}
+.linea{
+    background-color: var(--secundary-color);
+    height: 15px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+
+}
+.cv{
+    text-align: center;
+    
+}
+.cv-titulo{
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+}
+.cv-info-detalles{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+    max-width: 450px;
+    margin: 20px auto;
+    
+}
+.Descargar-cv{
+    background-color: var(--primary-color);
+    color: var(--text-color-inverse);
+    font-size: 20px;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.Descargar-cv:hover{
+    filter: brightness(130%);
+}
+@media (min-width: 950px){
+
+    .img-cv{
+        width: 100%;
+        max-width: 350px;
+        transform: scaleX(-1);
+    }
+    
+    
+    
+    .cv{
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        max-width: 980px;
+        margin: 0 auto;
+        align-items: center;
+    }
+    .cv-titulo{
+        font-size: 60px;
+        
+    }
+    .cv-info-detalles{
+        font-size: 25px;
+        font-weight: 500;
+        line-height: 1.3;
+        max-width: 450px;
+        margin: 30px 0;
+        
+    }
+    .Descargar-cv{
+        font-size: 28px;
+        
+        
+    }
+    
+}
+.skills1{
+    font-weight: 500;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+.skills-info{
+    font-size: 20px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0,0,0, 0.25);
+    border-radius: 42px;
+    padding: 00.5em 0.7em;
+    margin: 10px; 
+    
+    
+}
+.lista-skills{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+
+@media(min-width: 950px) {
+    .skills1{
+        font-size: 50px;
+        
+        
+    }
+    .skills-info{
+        font-size: 30px;
+        margin: 20px; 
+        
+        
+    }
+    
+}
